@@ -16,7 +16,8 @@
 <body>
     <header>
         <img src="image/js.png" width="80">
-        <h1>{{namaLengkap}}</h1>
+        <h1>{{bilangan}}</h1>
+        <p>Angka ini adalah bilangan {{infoBilangan}}</p>
         <p>The Progresive 
             Javascript Framework</p>
     </header>
@@ -36,7 +37,8 @@
             message : 'Hello World!',
             qty : 1,
             namaDepan : "Pramudya",
-            NamaBelakang : "Kamal"
+            NamaBelakang : "Kamal",
+            bilangan : 3
         },
         methods : {
             getname: function() {
@@ -53,6 +55,9 @@
             },
             namaLengkap: function() {
                 return this.namaDepan + ' ' + this.NamaBelakang
+            },
+            infoBilangan : function() {
+                return this.bilangan%2 === 0 ? 'Genap' : 'Ganjil'
             }
         }
     })
