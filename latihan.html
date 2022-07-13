@@ -16,7 +16,7 @@
 <body>
     <header>
         <img src="image/js.png" width="80">
-        <h1>{{getname()}}</h1>
+        <h1>{{namaLengkap}}</h1>
         <p>The Progresive 
             Javascript Framework</p>
     </header>
@@ -28,12 +28,15 @@
             
 </div>
             <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
-<script>}
+<script>
     const vm = new Vue({
         el : '#app',
         data : {
             name : 'Kamal',
-            message : 'Hello World!'
+            message : 'Hello World!',
+            qty : 1,
+            namaDepan : "Pramudya",
+            NamaBelakang : "Kamal"
         },
         methods : {
             getname: function() {
@@ -42,6 +45,14 @@
             ubahNama: function(namaBaru) {
                 this.name = namaBaru
                 return this.getname()
+            }
+        },
+        computed : {
+            hargaBarang: function() {
+                return this.qty*100000
+            },
+            namaLengkap: function() {
+                return this.namaDepan + ' ' + this.NamaBelakang
             }
         }
     })
