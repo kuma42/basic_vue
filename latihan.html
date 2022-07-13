@@ -16,7 +16,7 @@
 <body>
     <header>
         <img src="image/js.png" width="80">
-        <h1>{{name}}</h1>
+        <h1>{{isactive ? 'success' : 'danger'}}</h1>
         <p>The Progresive 
             Javascript Framework</p>
     </header>
@@ -31,7 +31,8 @@
 <script>
     const member = {
         name : 'Kamal',
-        message : 'Hello World!'
+        message : 'Hello World!',
+        isactive : false,
     }
 
     const vm = new Vue({
