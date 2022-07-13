@@ -16,7 +16,7 @@
 <body>
     <header>
         <img src="image/js.png" width="80">
-        <h1>{{isactive ? 'success' : 'danger'}}</h1>
+        <h1>{{getname()}}</h1>
         <p>The Progresive 
             Javascript Framework</p>
     </header>
@@ -28,16 +28,22 @@
             
 </div>
             <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
-<script>
-    const member = {
-        name : 'Kamal',
-        message : 'Hello World!',
-        isactive : false,
-    }
-
+<script>}
     const vm = new Vue({
         el : '#app',
-        data : member
+        data : {
+            name : 'Kamal',
+            message : 'Hello World!'
+        },
+        methods : {
+            getname: function() {
+                return 'Hello, '+this.name
+            },
+            ubahNama: function(namaBaru) {
+                this.name = namaBaru
+                return this.getname()
+            }
+        }
     })
 </script>
 </body>
