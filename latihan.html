@@ -9,6 +9,12 @@
             margin :5%;
             font-family: 'Quicksand', sans-serif;
         }
+
+        .active{
+            background: salmon;
+            border: 0;
+            padding: 5px;
+        }
         </style>
 </head>
 
@@ -20,20 +26,24 @@
         <p>{{bilangan}}</p>
         <p>ini adalah bilangan {{infoBilangan}}</p>
         <p>
-            <button @:click="handleClick">Click Me!</button>
+            <button @click="handleClick">Click Me!</button>
         </p>
         <img :src="image" width="500">
         <p>The Progresive 
             Javascript Framework</p>
     </header>
     
+    <button v-bind:class="{active: menu === 'Home'}" v-on:click="menu = 'Home'">Home</button>
+    <button v-bind:class="{active: menu === 'About'}" v-on:click="menu = 'About'">About</button>
+    <button v-bind:class="{active: menu === 'Blog'}" v-on:click="menu = 'Blog'">Blog</button>
     
     <footer id="footer">
         <p>copyright 2022</p>
     </footer>
             
+</body>
 </div>
-            <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
 <script>
     const vm = new Vue({
         el : '#app',
@@ -45,7 +55,8 @@
             NamaBelakang : "Kamal",
             bilangan : 1,
             link : '<a href="">Login</a>',
-            image: 'image/vuejs.jpg'
+            image : 'image/vuejs.jpg',
+            menu : 'About'
         },
         methods : {
             getname: function() {
@@ -73,5 +84,4 @@
         }
     })
 </script>
-</body>
 </html>
