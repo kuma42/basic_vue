@@ -16,9 +16,8 @@
 <body>
     <header>
         <img src="image/js.png" width="80">
-        <h1>{{bilangan}}</h1>
-        <h2 v-text="name"></h2>
-        <p>Angka ini adalah bilangan {{infoBilangan}}</p>
+        <h1>{{name}}</h1>
+        <img :src="image" width="500">
         <p>The Progresive 
             Javascript Framework</p>
     </header>
@@ -40,7 +39,8 @@
             namaDepan : "Pramudya",
             NamaBelakang : "Kamal",
             bilangan : 3,
-            link : '<a href="">Login</a>'
+            link : '<a href="">Login</a>',
+            image: 'image/vuejs.jpg'
         },
         methods : {
             getname: function() {
