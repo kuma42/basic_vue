@@ -17,6 +17,11 @@
     <header>
         <img src="image/js.png" width="80">
         <h1>{{name}}</h1>
+        <p>{{bilangan}}</p>
+        <p>ini adalah bilangan {{infoBilangan}}</p>
+        <p>
+            <button @:click="handleClick">Click Me!</button>
+        </p>
         <img :src="image" width="500">
         <p>The Progresive 
             Javascript Framework</p>
@@ -38,7 +43,7 @@
             qty : 1,
             namaDepan : "Pramudya",
             NamaBelakang : "Kamal",
-            bilangan : 3,
+            bilangan : 1,
             link : '<a href="">Login</a>',
             image: 'image/vuejs.jpg'
         },
@@ -49,6 +54,10 @@
             ubahNama: function(namaBaru) {
                 this.name = namaBaru
                 return this.getname()
+            },
+            handleClick: function() {
+                this.bilangan++
+                this.infoBilangan === 'Genap' ? this.image = "image/React.jpg" : this.image = "image/vuejs.jpg"
             }
         },
         computed : {
