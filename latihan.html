@@ -28,7 +28,12 @@
 
         <div>
             <ul>
-                <li v-for="i in checked" v-text="i"></li>
+                <li v-for="(item, index) in checked">{{index+1}} {{item}}</li>
+            </ul>
+
+            <p>Perulangan 1-5</p>
+            <ul>
+                <li v-for="i in 5" v-text="i"></li>
             </ul>
 
             <label >{{checked}}</label>
