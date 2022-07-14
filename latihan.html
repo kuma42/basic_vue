@@ -27,7 +27,8 @@
         <p>{{bilangan}}</p>
 
         <div>
-            <ul>
+            <p>Daftar kelas {{checked.length}}</p>
+            <ul v-if="checked.length > 1" >
                 <li v-for="(item, index) in checked">{{index+1}} {{item}}</li>
             </ul>
 
