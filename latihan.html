@@ -23,20 +23,24 @@
     <header>
         <img src="image/js.png" width="80">
         <h1>{{name}}</h1>
+        <input type="text" v-model='name'>
         <p>{{bilangan}}</p>
-        <p>ini adalah bilangan {{infoBilangan}}</p>
-        <p>
-            <button @click="handleClick">Click Me!</button>
-        </p>
-        <img :src="image" width="500">
+        
+        <div>
+            <label >{{checked}}</label>
+            <p><input type="checkbox" value='Vue' v-model="checked">Vue</p>
+            <p><input type="checkbox" value="React" v-model="checked">React</p>
+            <p><input type="checkbox" value="Angular" v-model="checked">Angular</p>
+        </div>
+
+        <button v-bind:class="{active: menu === 'Home'}" v-on:click="menu = 'Home'">Home</button>
+        <button v-bind:class="{active: menu === 'About'}" v-on:click="menu = 'About'">About</button>
+        <button v-bind:class="{active: menu === 'Blog'}" v-on:click="menu = 'Blog'">Blog</button>
+        
         <p>The Progresive 
             Javascript Framework</p>
     </header>
-    
-    <button v-bind:class="{active: menu === 'Home'}" v-on:click="menu = 'Home'">Home</button>
-    <button v-bind:class="{active: menu === 'About'}" v-on:click="menu = 'About'">About</button>
-    <button v-bind:class="{active: menu === 'Blog'}" v-on:click="menu = 'Blog'">Blog</button>
-    
+
     <footer id="footer">
         <p>copyright 2022</p>
     </footer>
@@ -56,7 +60,8 @@
             bilangan : 1,
             link : '<a href="">Login</a>',
             image : 'image/vuejs.jpg',
-            menu : 'About'
+            menu : 'About',
+            checked : []
         },
         methods : {
             getname: function() {
