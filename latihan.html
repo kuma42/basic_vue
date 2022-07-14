@@ -35,6 +35,11 @@
             <ul>
                 <li v-for="i in 5" v-text="i"></li>
             </ul>
+            <div></div>
+            <p>mencari bilangan genap: {{numbers}}</p>
+            <ul>
+                <li v-for="i in bilanganGenap(numbers)" v-text="i"></li>
+            </ul>
 
             <label >{{checked}}</label>
             <div></div>
@@ -74,7 +79,8 @@
             link : '<a href="">Login</a>',
             image : 'image/vuejs.jpg',
             menu : 'About',
-            checked : []
+            checked : [],
+            numbers : [1,2,3,4,5]
         },
         methods : {
             getname: function() {
@@ -87,6 +93,11 @@
             handleClick: function() {
                 this.bilangan++
                 this.infoBilangan === 'Genap' ? this.image = "image/React.jpg" : this.image = "image/vuejs.jpg"
+            },
+            bilanganGenap: (data) => {
+                return data.filter(angka => {
+                    return angka%2 == 1
+                })
             }
         },
         computed : {
