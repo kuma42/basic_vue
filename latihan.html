@@ -25,12 +25,20 @@
         <h1>{{name}}</h1>
         <input type="text" v-model='name'>
         <p>{{bilangan}}</p>
-        
+
         <div>
+            <ul>
+                <li v-for="i in checked" v-text="i"></li>
+            </ul>
+
             <label >{{checked}}</label>
-            <p><input type="checkbox" value='Vue' v-model="checked">Vue</p>
-            <p><input type="checkbox" value="React" v-model="checked">React</p>
-            <p><input type="checkbox" value="Angular" v-model="checked">Angular</p>
+            <div></div>
+            <label><input type="checkbox" value='Vue' v-model="checked">Vue</label>
+            <label><input type="checkbox" value="React" v-model="checked">React</label>
+            <label><input type="checkbox" value="Angular" v-model="checked">Angular</label>
+            <label><input type="checkbox" value='Golang' v-model="checked">Golang</label>
+            <label><input type="checkbox" value="PHP" v-model="checked">PHP</label>
+            <label><input type="checkbox" value="JavaScript" v-model="checked">JavaScript</label>
         </div>
 
         <button v-bind:class="{active: menu === 'Home'}" v-on:click="menu = 'Home'">Home</button>
