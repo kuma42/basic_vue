@@ -24,14 +24,17 @@
         <img src="image/js.png" width="80">
         <h1>{{name}}</h1>
         <input type="text" v-model='name'>
-        <p>{{bilangan}}</p>
+        <!-- <p>{{bilangan}}</p> -->
 
         <div>
             <p>Daftar kelas {{checked.length}}</p>
-            <ul v-if="checked.length > 1" >
-                <li v-for="(item, index) in checked">{{index+1}} {{item}}</li>
-            </ul>
-                <li v-else>data belum tersedia</li>
+
+            <template>
+                <ul v-if="checked.length > 1" >
+                    <li v-for="(item, index) in checked">{{index+1}} {{item}}</li>
+                </ul>
+                    <li v-else>data belum tersedia</li>
+            </template>
 
             <p>Perulangan 1-5</p>
             <ul>
