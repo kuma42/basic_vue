@@ -26,6 +26,9 @@
         <input type="text" v-model='name'>
         <!-- <p>{{bilangan}}</p> -->
 
+        <h3>Form Input</h3>
+        <p><input type="text" placeholder="nama kelas" v-on:keyup.enter="submit"></p>
+
         <div>
             <p>Daftar kelas {{checked.length}}</p>
 
@@ -106,6 +109,12 @@
             },
             gantiMenu: function(data) {
                 this.menu = data
+            }, 
+            submit: function(e) {
+                let text = event.target.value
+                // console.log(text)
+                this.checked.push(text)
+                event.target.value=""
             }
         },
         computed : {
