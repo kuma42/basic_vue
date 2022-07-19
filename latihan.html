@@ -56,9 +56,9 @@
             <label><input type="checkbox" value="JavaScript" v-model="checked">JavaScript</label>
         </div>
 
-        <button v-bind:class="{active: menu === 'Home'}" v-on:click="menu = 'Home'">Home</button>
-        <button v-bind:class="{active: menu === 'About'}" v-on:click="menu = 'About'">About</button>
-        <button v-bind:class="{active: menu === 'Blog'}" v-on:click="menu = 'Blog'">Blog</button>
+        <a v-bind:class="{active: menu === 'Home'}" href="#" v-on:click.prevent="gantiMenu('Home')">Home</a>
+        <a v-bind:class="{active: menu === 'About'}" href="#" v-on:click.prevent="gantiMenu('About')">About</a>
+        <a v-bind:class="{active: menu === 'Blog'}" href="#" v-on:click.prevent="gantiMenu('Blog')">Blog</a>
         
         <p>The Progresive 
             Javascript Framework</p>
@@ -83,7 +83,7 @@
             bilangan : 1,
             link : '<a href="">Login</a>',
             image : 'image/vuejs.jpg',
-            menu : 'About',
+            menu : 'Home',
             checked : [],
             numbers : [1,2,3,4,5]
         },
@@ -103,6 +103,9 @@
                 return data.filter(angka => {
                     return angka%2 == 1
                 })
+            },
+            gantiMenu: function(data) {
+                this.menu = data
             }
         },
         computed : {
