@@ -23,21 +23,8 @@
   <header-component></header-component>
   <body>
 
-    <main> 
-      <h3>Form Input</h3>
-      <p><input type="text" placeholder="nama kelas" v-on:keyup.enter="submit" v-model="kelasBaru"></p>
-      <hr>
-
-      <div>
-          <p>Daftar kelas {{checked.length}}</p>
-
-          <template>
-              <ul v-if="checked.length > 1" >
-                  <li v-for="(item, index) in checked">{{index+1}} {{item}}</li>
-              </ul>
-                  <li v-else>data belum tersedia</li>
-          </template>
-      </div>
+    <main>
+      <kelas />
     </main>
     
     
@@ -69,6 +56,37 @@
           <p>copyright 2022</p>
       </footer>
     `
+  })
+  Vue.component('kelas', {
+    template: `
+      <div>
+        <h3>Form Input</h3>
+        <p><input type="text" placeholder="nama kelas" v-on:keyup.enter="submit" v-model="kelasBaru"></p>
+        <hr>
+        <div>
+            <p>Daftar kelas {{checked.length}}</p>
+            <template>
+                <ul v-if="checked.length > 1" >
+                    <li v-for="(item, index) in checked">{{index+1}} {{item}}</li>
+                </ul>
+                    <li v-else>data belum tersedia</li>
+            </template>
+        </div>
+      </div>
+    `,
+    data: function() {
+      return {
+        kelasBaru : "",
+          checked : []
+      }
+    },
+    methods: {
+        submit: function() {
+              // console.log(text)
+              this.checked.unshift(this.kelasBaru)
+              this.kelasBaru=""
+      }
+    }
   })
 
   const vm = new Vue({
