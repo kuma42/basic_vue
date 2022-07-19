@@ -27,7 +27,7 @@
         <!-- <p>{{bilangan}}</p> -->
 
         <h3>Form Input</h3>
-        <p><input type="text" placeholder="nama kelas" v-on:keyup.enter="submit"></p>
+        <p><input type="text" placeholder="nama kelas" v-on:keyup.enter="submit" v-model="kelasBaru"></p>
 
         <div>
             <p>Daftar kelas {{checked.length}}</p>
@@ -87,6 +87,7 @@
             link : '<a href="">Login</a>',
             image : 'image/vuejs.jpg',
             menu : 'Home',
+            kelasBaru : "",
             checked : [],
             numbers : [1,2,3,4,5]
         },
@@ -110,11 +111,10 @@
             gantiMenu: function(data) {
                 this.menu = data
             }, 
-            submit: function(e) {
-                let text = event.target.value
+            submit: function() {
                 // console.log(text)
-                this.checked.push(text)
-                event.target.value=""
+                this.checked.unshift(this.kelasBaru)
+                this.kelasBaru=""
             }
         },
         computed : {
