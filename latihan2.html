@@ -20,7 +20,7 @@
 
 <div id="app" >
   
-  <header-component></header-component>
+  <header-component nama="Dila" img="image/js.png"></header-component>
   <body>
 
     <main>
@@ -36,12 +36,13 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
 <script>
   Vue.component('header-component', {
+    props: ['nama', 'img'],
     template:`
       <header>
-          <img src="image/vuejs.jpg" width="500">
+          <img :src="img" width="100">
           <p>The Progresive 
               Javascript Framework</p>
-          <p v-text="pesan" ></p>
+          <p v-text="'Hello, '+nama" ></p>
       </header>
     `,
     data: function() {
