@@ -19,18 +19,19 @@
 </head>
 
 <div id="app" >
-  
-  <header-component nama="Dila" img="image/js.png"></header-component>
+  <template>
+    <header-component nama="Dila" img="image/js.png" />
+  </template>
   <body>
 
     <main>
-      <kelas />
+      <kelas :items="checked" :input="kelasBaru" />
     </main>
     
     
     
   </body>
-  <footer-component></footer-component>
+  <footer-component />
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
@@ -51,24 +52,18 @@
       }
     }
   })
-  Vue.component('footer-component', {
-    template:`
-      <footer id="footer">
-          <p>copyright 2022</p>
-      </footer>
-    `
-  })
   Vue.component('kelas', {
+    props: ['items', 'input'],
     template: `
       <div>
         <h3>Form Input</h3>
-        <p><input type="text" placeholder="nama kelas" v-on:keyup.enter="submit" v-model="kelasBaru"></p>
+        <p><input type="text" placeholder="nama kelas" v-on:keyup.enter="submit" v-model="input"></p>
         <hr>
         <div>
-            <p>Daftar kelas {{checked.length}}</p>
+            <p>Daftar kelas {{items.length}}</p>
             <template>
-                <ul v-if="checked.length > 1" >
-                    <li v-for="(item, index) in checked">{{index+1}} {{item}}</li>
+                <ul v-if="items.length > 1" >
+                    <li v-for="(item, index) in items">{{index+1}} {{item}}</li>
                 </ul>
                     <li v-else>data belum tersedia</li>
             </template>
@@ -77,24 +72,29 @@
     `,
     data: function() {
       return {
-        kelasBaru : "",
-          checked : []
       }
     },
     methods: {
         submit: function() {
               // console.log(text)
-              this.checked.unshift(this.kelasBaru)
-              this.kelasBaru=""
+              this.items.unshift(this.input)
+              this.input=""
       }
     }
+  })
+  Vue.component('footer-component', {
+    template:`
+      <footer id="footer">
+          <p>copyright 2022</p>
+      </footer>
+    `
   })
 
   const vm = new Vue({
       el : '#app',
       data : {
           kelasBaru : "",
-          checked : []
+          checked : ["Golang", "Java", "PHP"]
       },
       methods : {
           submit: function() {
