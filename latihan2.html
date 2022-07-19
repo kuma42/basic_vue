@@ -18,15 +18,10 @@
         </style>
 </head>
 
-<header-component></header-component>
-
 <div id="app" >
-<body>
-    <header>
-        <img src="image/vuejs.jpg" width="500">
-        <p>The Progresive 
-            Javascript Framework</p>
-    </header>
+  
+  <header-component></header-component>
+  <body>
 
     <main> 
       <h3>Form Input</h3>
@@ -44,10 +39,12 @@
           </template>
       </div>
     </main>
+    
+    
+    
+  </body>
+  <footer-component></footer-component>
 
-    <footer-component></footer-component>
-            
-</body>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
 <script>
@@ -57,8 +54,14 @@
           <img src="image/vuejs.jpg" width="500">
           <p>The Progresive 
               Javascript Framework</p>
+          <p v-text="pesan" ></p>
       </header>
-    `
+    `,
+    data: function() {
+      return {
+        pesan: 'Hello, Folks!'
+      }
+    }
   })
   Vue.component('footer-component', {
     template:`
